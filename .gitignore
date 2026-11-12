@@ -1,0 +1,91 @@
+# ---------------- Python ----------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# 打包 / 构建产物
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+
+# ---------------- 测试 / 类型检查 / 格式化 ----------------
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# ---------------- 环境变量 / 密钥 ----------------
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+auth.json
+
+# ---------------- 前端 ----------------
+node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.next/
+frontend/out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------------- 运行时数据 / 本地存储 ----------------
+data/*
+!data/.gitkeep
+*.jsonl
+!tests/**/*.jsonl
+.codee/
+
+# ---------------- 日志 / 临时文件 ----------------
+*.log
+logs/
+tmp/
+.tmp/
+*.tmp
+*.bak
+*.swp
+*~
+
+# ---------------- IDE / 编辑器 ----------------
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+*.code-workspace
+
+# ---------------- 操作系统 ----------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
