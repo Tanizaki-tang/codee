@@ -8,7 +8,8 @@ from typing import Literal, Protocol
 
 from pydantic import Field, model_validator
 
-from backend.agent.messages import ImageContent,TextContent,ToolCall,WireModel
+from agent.messages import ImageContent,TextContent,ToolCall,WireModel
+from agent.types import JSONValue
 
 #Protocol:鸭子类型，长得像鸭子那就是鸭子
 class ToolCancellationToken(Protocol):
@@ -52,9 +53,9 @@ ToolExecutionMode = Literal['sequential','parrallel']
 # 输入 object
 # 返回 Mapping[str,JSONValude
 # 作用：给此类函数起了类型别名
-ToolArgumentPreparer = Callable[[object],Mapping[str,JSONValude]]
+ToolArgumentPreparer = Callable[[object],Mapping[str,JSONValue]]
 
-@dataclass(forzen=True, slots=True)
+@dataclass(frozen=True, slots=True)
 class AgentTool:
     name:str
     label:str

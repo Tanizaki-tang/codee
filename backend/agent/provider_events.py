@@ -5,7 +5,7 @@ from typing import Annotated, Literal
 
 from pydantic import Field
 
-from agent.message import AssistantMessage, ToolCall, WireModel
+from agent.messages import AssistantMessage, ToolCall, WireModel
 
 #Assistant -- Text     -- End
 #          -- Thinking 

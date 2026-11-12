@@ -135,8 +135,14 @@ def _response_timing(
         total_duration_ms=total_elapsed_ns // 1_000_000,
     )
 
-def _error_result():
-    ...
+def _error_message(model: str, message: str) -> AssistantMessage:
+    return AssistantMessage(
+        model=model,
+        content=[],
+        stop_reason="error",
+        error_message=message,
+    )
+
 
 BeforeToolCall = Callable[[ToolCall],Awaitable[tuple[bool,str | None]]]
 AfterToolCall = Callable[
@@ -223,7 +229,7 @@ async def _execute_tool_call(
         yield MessageStartEvent(message=message)
         yield MessageEndEvent(message=message)
 
-async def _provider_context(messages:list[AgentMessage])->list[AgentMessage]:
+def _provider_context(messages:list[AgentMessage])->list[AgentMessage]:
     """过滤失败信息，给LLM清洁后的上下文"""
     replayable = tuple(
         message for message in messages

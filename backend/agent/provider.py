@@ -6,9 +6,9 @@ from __future__ import annotations
 from typing import Protocol
 from collections.abc import AsyncIterator
 
-from backend.agent.messages import AgentMessage
+from agent.messages import AgentMessage
 from agent.tools import AgentTool
-from backend.agent.provider_events import AssistantMessageEvent
+from agent.provider_events import AssistantMessageEvent
 
 class CancellationToken(Protocol):
     def is_canclled(self)->bool:
