@@ -6,8 +6,9 @@ from __future__ import annotations
 from typing import Protocol
 from collections.abc import AsyncIterator
 
-from agent.message import AgentMessage
+from backend.agent.messages import AgentMessage
 from agent.tools import AgentTool
+from backend.agent.provider_events import AssistantMessageEvent
 
 class CancellationToken(Protocol):
     def is_canclled(self)->bool:
@@ -25,6 +26,6 @@ class ModelProvider(Protocol):
             tools: list[AgentTool],
             signal : CancellationToken |None = None,
             session_id : str| None = None,
-    ):
+    )-> AsyncIterator[AssistantMessageEvent]:
         """厂商无关的流式输出封装"""
         ...

@@ -8,7 +8,7 @@ from typing import Literal, Protocol
 
 from pydantic import Field, model_validator
 
-from agent.message import ImageContent,TextContent,ToolCall,WireModel
+from backend.agent.messages import ImageContent,TextContent,ToolCall,WireModel
 
 #Protocol:鸭子类型，长得像鸭子那就是鸭子
 class ToolCancellationToken(Protocol):
